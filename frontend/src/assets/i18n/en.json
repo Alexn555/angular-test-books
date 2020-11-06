@@ -1,0 +1,56 @@
+{
+   "menu": {
+      "books": "Books",
+      "checkouts": "Checkouts",
+      "favourites": "Favourites"
+   },
+   "books": {
+       "title": "Books",
+       "list": {
+         "title": "Title",
+         "author": "Author",
+         "genre": "Genre",
+         "year": "Year",
+         "status": "Status"
+       },
+       "favourites": {
+          "title": "Favourites"
+	    }
+   },
+   "booksForm": {
+     "labels": {
+       "title": "Title",
+       "author": "Author",
+       "genre": "Genre",
+       "status": "Status",
+       "favourites": "favourites"
+     },
+      "update": "Update",
+      "delete": "Delete",
+      "addToFavourites": "Add to Favourites"
+   },
+  "checkouts": {
+    "title": "Checkouts",
+    "list": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "checkedOutDate": "Checkout date",
+      "dueDate": "Due date",
+      "returnDate": "Return date"
+    }
+  },
+  "checkoutForm": {
+    "labels": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "checkedOutDate": "Checkout date",
+      "dueDate": "Due date"
+    }
+  },
+  "favourites": {
+      "title": "Favourite Books"
+  },
+  "errors": {
+    "noDataFound": "No JSON Form data found!"
+  }
+}
