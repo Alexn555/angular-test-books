@@ -1,0 +1,14 @@
+<div class="container mat-elevation-z4">
+  <mat-card>
+    <mat-card-title>{{ 'books.title' | translate }}</mat-card-title>
+    <mat-card-content>
+      <ngx-table
+        [configuration]="configuration"
+        [data]="data"
+        [columns]="columns"
+        (event)="onBookClick($event)"
+      >
+      </ngx-table>
+    </mat-card-content>
+  </mat-card>
+</div>

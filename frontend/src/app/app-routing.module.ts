@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BooksListComponent } from './components/books-list/books-list.component';
-import { BookDetailComponent } from './components/book-detail/book-detail.component';
-import { BooksFavouritesComponent } from './components/books-favourites/books-favourites.component';
+import { BooksListComponent } from './modules/books/books-list/books-list.component';
+import { BookDetailComponent } from './modules/books/book-detail/book-detail.component';
+import { BooksFavouritesComponent } from './modules/books/books-favourites/books-favourites.component';
 
-import { CheckoutListComponent } from './components/checkout-list/checkout-list.component';
-import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
+import { CheckoutListComponent } from './modules/checkouts/checkout-list/checkout-list.component';
+import { CheckoutDetailComponent } from './modules/checkouts/checkout-detail/checkout-detail.component';
 
 
 const routes: Routes = [
