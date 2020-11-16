@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, Subscription } from 'rxjs';
 import { NotificationService } from '../../../shared/services/notification-service';
+import { isEventValid } from '../../../shared/helpers/table-event';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 
 import { getDateTimestamp, isDateInLimits } from '../../../shared/helpers/date.helper';
@@ -81,15 +82,7 @@ export class CheckoutListComponent implements OnInit, OnDestroy {
   }
 
   onBookClick($event: { event: string; value: any }): void {
-    if ($event && typeof $event.value === 'undefined') {
-      this.notify.showWarn('Checkouts', 'No item in event selector!');
-      return;
-    }
-    // disallow if table operations except pick item
-    if ($event.value <= 1000 // when collapse to check if late
-       || $event.value.length > 0 // if it's search operation
-       || typeof $event.value.order !== 'undefined'
-       || typeof  $event.value.page !== 'undefined') {
+    if (!isEventValid($event, 'Checkouts', this.notify)) {
       return;
     }
 

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { NotificationService } from '../../../shared/services/notification-service';
+import { isEventValid } from '../../../shared/helpers/table-event';
 
 import { BookService } from '../../../services/book.service';
 import { Observable, Subscription } from 'rxjs';
@@ -71,14 +72,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
   }
 
   onBookClick($event: { event: string; value: any }): void {
-    if ($event && typeof $event.value === 'undefined') {
-      this.notify.showWarn('Books', 'No book in event selector!');
-      return;
-    }
-    // disallow if table operations except pick item
-    if ($event.value.length > 0 // if it's search operation
-       || typeof $event.value.order !== 'undefined'
-       || typeof  $event.value.page !== 'undefined') {
+    if (!isEventValid($event, 'Books', this.notify)) {
       return;
     }
 

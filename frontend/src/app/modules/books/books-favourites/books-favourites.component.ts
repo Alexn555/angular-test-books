@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Columns, Config, DefaultConfig } from 'ngx-easy-table';
 import { NotificationService } from '../../../shared/services/notification-service';
 import { removeFromStorage } from '../../../shared/helpers/book-storage';
+import { isEventValid } from '../../../shared/helpers/table-event';
+
 import { TranslateService } from '@ngx-translate/core';
 
 import { FAV_STORAGE } from '../../../shared/settings';
@@ -55,14 +57,7 @@ export class BooksFavouritesComponent implements OnInit {
   }
 
   onRemoveFromFavourites($event: { event: string; value: any }): void {
-    if ($event && typeof $event.value === 'undefined') {
-      this.notify.showWarn('Favourite books', 'No data!');
-      return;
-    }
-    // disallow if table operations except pick item
-    if ($event.value.length > 0 // if it's search operation
-      || typeof $event.value.order !== 'undefined'
-      || typeof  $event.value.page !== 'undefined') {
+    if (!isEventValid($event, 'Favourite Books', this.notify)) {
       return;
     }
 
